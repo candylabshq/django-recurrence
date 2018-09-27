@@ -61,7 +61,16 @@ class RecurrenceWidget(forms.Textarea):
                 ),
             },
         )
-    media = property(get_media)
+
+    class Media:
+        css = {
+            'all': (staticfiles_storage.url('recurrence/css/recurrence.css'),)
+        }
+        js = (
+            staticfiles_storage.url('recurrence/js/recurrence.js'),
+            staticfiles_storage.url('recurrence/js/recurrence-widget.js')
+        )
+    # media = property(get_media)
 
 
 class RecurrenceField(forms.CharField):
